@@ -1,0 +1,39 @@
+name: 'Build & Test Repo'
+
+on:
+  push:
+    branches:
+    - main
+    paths-ignore:
+    - '**/*.md'
+  pull_request:
+    types: [closed]
+    branches:
+    - main
+    paths-ignore:
+    - '**/*.md'
+  workflow_dispatch:
+
+env:
+  DOTNET_VERSION: '7.0.x'
+  BUILD_CONFIGURATION: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build & Test
+    steps:
+      
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: "Setup .NET v${{env.DOTNET_VERSION}}"
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{env.DOTNET_VERSION}}
+          
+    - name: Build
+      run: dotnet build --configuration ${{env.BUILD_CONFIGURATION}}
+
+    - name: Test
+      run: dotnet test --configuration Release --no-build

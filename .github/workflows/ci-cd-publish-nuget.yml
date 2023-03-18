@@ -1,0 +1,46 @@
+name: 'Publish NuGet RS.SDI.DimlMgr'
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - dimlmgr-client/*
+  pull_request:
+    types: [closed]
+    branches:
+    - main
+    paths:
+    - dimlmgr-client/*
+  workflow_dispatch:
+
+env:
+  DOTNET_VERSION: '7.0.x'
+  BUILD_CONFIGURATION: Release
+  DIML_LIBRARY_CSPROJ_PATH: 'dimlmgr-client/dimlmgr-client.csproj'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Create & Publish NuGet
+    steps:
+      
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: "Setup .NET v${{env.DOTNET_VERSION}}"
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{env.DOTNET_VERSION}}
+          
+    - name: Build diml-library
+      run: dotnet build ${{env.DIML_LIBRARY_CSPROJ_PATH}} --configuration ${{env.BUILD_CONFIGURATION}}
+
+    - name: Test
+      run: dotnet test --filter LibraryUnitTests --configuration Release --no-build
+
+    - name: Create NuGet package
+      run: dotnet pack ${{env.DIML_LIBRARY_CSPROJ_PATH}} --configuration ${{env.BUILD_CONFIGURATION}} --no-build --output .
+
+    - name: Publish NuGet package
+      run: dotnet nuget push *.nupkg --api-key ${{secrets.DIML_NUGET_AUTH_TOKEN}} --source https://nuget.pkg.github.com/Region-Skane-SDI/index.json --no-symbols --skip-duplicate
