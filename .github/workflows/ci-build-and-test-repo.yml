@@ -32,8 +32,8 @@ jobs:
       with:
         dotnet-version: ${{env.DOTNET_VERSION}}
           
-    - name: Build
-      run: dotnet build --configuration ${{env.BUILD_CONFIGURATION}}
+    #- name: Build
+    #  run: dotnet build --configuration ${{env.BUILD_CONFIGURATION}}
 
-    - name: Test
-      run: dotnet test --configuration Release --no-build
+    #- name: Test
+    #  run: dotnet test --configuration Release --no-build

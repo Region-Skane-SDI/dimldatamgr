@@ -6,9 +6,10 @@ namespace RS.SDI.DimlMgr.Client
         [TestMethod]
         public async Task PopulateSamples()
         {
-            var testbed = new DataSpace("Test");
-            await testbed.PopulateSamplesAsync();
-            var states = testbed.GetAllDataProductStates();
+            var testbed = new DimlClient("Test");
+            await testbed.PopulateSampleDataProductsAsync("https://api.github.com/repos/Region-Skane-SDI/diml/contents/samples/demo", xsdUri: "https://raw.githubusercontent.com/Region-Skane-SDI/diml/main/schemas/v0/dataproduct.xsd", xsdTargetNamespace: "https://github.com/Region-Skane-SDI/diml");
+            await testbed.PopulateSampleStatesAsync();
+            var states = await testbed.GetAllDataProductBundlesAsync();
 
             foreach (var state in states)
             {
