@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dimlmgr-client", "dimlmgr-c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dimlmgr-test", "dimlmgr-test\dimlmgr-test.csproj", "{5E90AA14-A6DE-4222-BEEF-56960B6F0ADA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dimlmgr-cmdline", "dimlmgr-cmdline\dimlmgr-cmdline.csproj", "{1D1962E4-B0B9-4A21-82E2-C86637DFC866}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dimlmgr-cmdline", "dimlmgr-cmdline\dimlmgr-cmdline.csproj", "{1D1962E4-B0B9-4A21-82E2-C86637DFC866}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dimlmgr-server", "dimlmgr-server\dimlmgr-server.csproj", "{B47F65BC-73D3-4182-B414-9B5BC20D579C}"
 EndProject
@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\ci-build-and-test-repo.yml = .github\workflows\ci-build-and-test-repo.yml
 		.github\workflows\ci-cd-publish-nuget.yml = .github\workflows\ci-cd-publish-nuget.yml
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
