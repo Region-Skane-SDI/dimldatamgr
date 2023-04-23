@@ -17,7 +17,7 @@ on:
 env:
   DOTNET_VERSION: '7.0.x'
   BUILD_CONFIGURATION: Release
-  DIML_LIBRARY_CSPROJ_PATH: 'dimlmgr-client/dimlmgr-client.csproj'
+  DIMLMGR_CLIENT_CSPROJ_PATH: 'dimlmgr-client/dimlmgr-client.csproj'
 
 jobs:
   build:
@@ -33,17 +33,17 @@ jobs:
       with:
         dotnet-version: ${{env.DOTNET_VERSION}}
           
-    #- name: Add package source
-    #  run: dotnet nuget add source "https://nuget.pkg.github.com/Region-Skane-SDI/index.json" --name "sdi-nuget-feed" --api-key ${{secrets.DIML_NUGET_AUTH_TOKEN}}
+    - name: Add NuGet Source
+      run: dotnet nuget add source --username USERNAME --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name sdi-nuget-feed "https://nuget.pkg.github.com/Region-Skane-SDI/index.json"
 
-    #- name: Build dimlmgr-library
-    #  run: dotnet build ${{env.DIML_LIBRARY_CSPROJ_PATH}} --configuration ${{env.BUILD_CONFIGURATION}}
+    - name: Build dimlmgr-library
+      run: dotnet build ${{env.DIMLMGR_CLIENT_CSPROJ_PATH}} --configuration ${{env.BUILD_CONFIGURATION}}
 
-    #- name: Test
-    #  run: dotnet test --filter LibraryUnitTests --configuration Release --no-build
+    - name: Test
+      run: dotnet test --filter LibraryUnitTests --configuration Release --no-build
 
-    #- name: Create NuGet package
-    #  run: dotnet pack ${{env.DIML_LIBRARY_CSPROJ_PATH}} --configuration ${{env.BUILD_CONFIGURATION}} --no-build --output .
+    - name: Create NuGet package
+      run: dotnet pack ${{env.DIMLMGR_CLIENT_CSPROJ_PATH}} --configuration ${{env.BUILD_CONFIGURATION}} --no-build --output .
 
-    #- name: Publish NuGet package
-    #  run: dotnet nuget push *.nupkg --api-key ${{secrets.DIML_NUGET_AUTH_TOKEN}} --source https://nuget.pkg.github.com/Region-Skane-SDI/index.json --no-symbols --skip-duplicate
+    - name: Publish NuGet package
+      run: dotnet nuget push *.nupkg --api-key ${{secrets.DIML_NUGET_AUTH_TOKEN}} --source https://nuget.pkg.github.com/Region-Skane-SDI/index.json --no-symbols --skip-duplicate
