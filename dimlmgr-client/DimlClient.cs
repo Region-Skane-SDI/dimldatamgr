@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RS.SDI.Diml.Core;
+using RS.SDI.Diml.Core.Exceptions;
 using RS.SDI.Diml.Core.GitHub;
 using RS.SDI.Diml.Core.Utilities;
 using RS.SDI.Diml.Data;
@@ -55,12 +56,12 @@ namespace RS.SDI.DimlMgr.Client
             }
         }
 
-        public DataProductState? GetDataProductState(string dimlid)
+        public DataProductState GetDataProductState(string dimlid)
         {
             if (DataProductStates.ContainsKey(dimlid))
                 return DataProductStates[dimlid];
             else
-                return null;
+                throw new ItemMissingException(dimlid);
         }
 
         public async Task<DataProductBundle> GetDataProductBundleAsync(string dimlid) => new DataProductBundle { Dimlid = dimlid, Product = Workspace.GetDataProduct(dimlid), State = GetDataProductState(dimlid) };

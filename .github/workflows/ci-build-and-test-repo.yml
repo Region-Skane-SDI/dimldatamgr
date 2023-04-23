@@ -32,8 +32,11 @@ jobs:
       with:
         dotnet-version: ${{env.DOTNET_VERSION}}
           
-    #- name: Build
-    #  run: dotnet build --configuration ${{env.BUILD_CONFIGURATION}}
+    - name: Add NuGet Source
+      run: dotnet nuget add source --username USERNAME --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name sdi-nuget-feed "https://nuget.pkg.github.com/Region-Skane-SDI/index.json"
 
-    #- name: Test
-    #  run: dotnet test --configuration Release --no-build
+    - name: Build
+      run: dotnet build --configuration ${{env.BUILD_CONFIGURATION}}
+
+    - name: Test
+      run: dotnet test --configuration Release --no-build

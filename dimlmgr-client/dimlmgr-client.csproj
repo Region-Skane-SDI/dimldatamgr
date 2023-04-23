@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RS.SDI.Diml" Version="0.0.47" />
+    <PackageReference Include="RS.SDI.Diml" Version="0.0.49" />
   </ItemGroup>
 
 </Project>
