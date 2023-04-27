@@ -19,6 +19,7 @@ namespace RS.SDI.DimlMgr.Client
         public DimlClient()
         {
             Workspace = new Workspace();
+            Config = new DimlConfig();
             Clear();
         }
 
