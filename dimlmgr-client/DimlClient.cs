@@ -12,13 +12,20 @@ namespace RS.SDI.DimlMgr.Client
     {
         public Workspace Workspace { get; set; }
 
+        public DimlConfig Config { get; set; }
+
         private SortedList<string, DataProductState> DataProductStates { get; set; }
 
-        public DimlClient(string environment)
+        public DimlClient()
         {
             Workspace = new Workspace();
-            Workspace.Environment = environment;
             Clear();
+        }
+
+        public async Task Init(string environment, string configUri)
+        {
+            Workspace.Environment = environment;
+            Config.LoadAsync(configUri);
         }
 
         public void Clear()
