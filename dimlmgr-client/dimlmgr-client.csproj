@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Version>0.0.1</Version>
-    <PackageId>RS.SDI.Dimlmgr</PackageId>
+    <PackageId>RS.SDI.Dimlmgr.Client</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
