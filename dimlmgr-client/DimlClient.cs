@@ -56,8 +56,8 @@ namespace RS.SDI.DimlMgr.Client
                 state.ViewCount = Math.Abs(dimlidHashCode % 1000);
                 state.LikeCount = Math.Abs(dimlidHashCode % 100);
                 state.IsAvailable = true;
-                state.InformationOwner = "N N"; // TODO: Fix this
-                state.ProductOwner = "N N"; // TODO: Fix this
+                state.InformationOwner = "IT-Direktör"; // TODO: Fix this
+                state.ProductOwner = "Team X"; // TODO: Fix this
                 state.LastUpdate = DateTime.Now.AddHours(-1);
 
                 DataProductStates.Add(state.Dimlid, state);
