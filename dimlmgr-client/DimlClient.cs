@@ -74,6 +74,11 @@ namespace RS.SDI.DimlMgr.Client
             return DataProductStates.TryGetValue(dimlid, out DataProductState? value) ? value : throw new ItemMissingException(dimlid);
         }
 
+        public DataSource GetDataSource(string dimlid)
+        {
+            return Workspace.GetDataSource(dimlid) ?? throw new ItemMissingException(dimlid);
+        }
+
         public async Task<DataProductBundle> GetDataProductBundleAsync(string dimlid)
         {
             return new DataProductBundle()
@@ -93,5 +98,7 @@ namespace RS.SDI.DimlMgr.Client
                 State = GetDataProductState(product.Dimlid)
             }).ToArray();
         }
+
+        
     }
 }
