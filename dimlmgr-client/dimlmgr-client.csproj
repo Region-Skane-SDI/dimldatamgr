@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.0.4</Version>
+    <Version>0.0.5</Version>
     <PackageId>RS.SDI.Dimlmgr.Client</PackageId>
     <Company>Region Skåne</Company>
     <Title>Dimlmgr Client</Title>
@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="RS.SDI.Diml" Version="0.0.52" />
+    <PackageReference Include="RS.SDI.Diml" Version="0.0.68" />
   </ItemGroup>
 
 </Project>
