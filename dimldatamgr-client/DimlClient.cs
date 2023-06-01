@@ -41,13 +41,18 @@ namespace RS.SDI.DimlDataMgr.Client
         /// </summary>
         /// <param name="repoUri"></param>
         /// <returns></returns>
-        public async Task PopulateSampleDataProductsAsync(string repoUri, string xsdUri, string xsdTargetNamespace)
+        public async Task PopulateSampleDataProductsAsync(string repoUri, string? xsdUri = null, string? xsdTargetNamespace = null)
         {
-            await Workspace.PopulateSampleDataProductsAsync(repoUri, xsdUri, xsdTargetNamespace);
+            await Workspace.PopulateSampleDataProductsAsync(repoUri, xsdUri ?? Workspace.DefaultDataProductXsdUri, xsdTargetNamespace ?? Workspace.DefaultXsdTargetNamespace);
+        }
+
+        public async Task PopulateSampleDataSourcesAsync(string repoUri, string? xsdUri = null, string? xsdTargetNamespace = null)
+        {
+            await Workspace.PopulateSampleDataSourcesAsync(repoUri, xsdUri ?? Workspace.DefaultDataSourceXsdUri, xsdTargetNamespace ?? Workspace.DefaultXsdTargetNamespace);
         }
 
         public async Task PopulateSampleStatesAsync()
-        { 
+        {
             foreach (var dataProduct in Workspace.GetAllDataProducts())
             {
                 var state = new DataProductState();
@@ -66,18 +71,34 @@ namespace RS.SDI.DimlDataMgr.Client
 
         public DataProductState GetDataProductState(string dimlid)
         {
-            if (DataProductStates.ContainsKey(dimlid))
-                return DataProductStates[dimlid];
-            else
-                throw new ItemMissingException(dimlid);
+            return DataProductStates.TryGetValue(dimlid, out DataProductState? value) ? value : throw new ItemMissingException(dimlid);
         }
 
-        public async Task<DataProductBundle> GetDataProductBundleAsync(string dimlid) => new DataProductBundle { Dimlid = dimlid, Product = Workspace.GetDataProduct(dimlid), State = GetDataProductState(dimlid) };
+        public DataSource GetDataSource(string dimlid)
+        {
+            return Workspace.GetDataSource(dimlid) ?? throw new ItemMissingException(dimlid);
+        }
+
+        public async Task<DataProductBundle> GetDataProductBundleAsync(string dimlid)
+        {
+            return new DataProductBundle()
+            {
+                Dimlid = dimlid,
+                Product = Workspace.GetDataProduct(dimlid),
+                State = GetDataProductState(dimlid)
+            };
+        }
 
         public async Task<DataProductBundle[]> GetAllDataProductBundlesAsync()
         {
-            var bundles = Workspace.GetAllDataProducts().Select(product => new DataProductBundle { Dimlid = product.Dimlid, Product = product, State = GetDataProductState(product.Dimlid) }).ToArray();
-            return bundles;
+            return Workspace.GetAllDataProducts().Select(product => new DataProductBundle()
+            {
+                Dimlid = product.Dimlid,
+                Product = product,
+                State = GetDataProductState(product.Dimlid)
+            }).ToArray();
         }
+
+        
     }
 }
