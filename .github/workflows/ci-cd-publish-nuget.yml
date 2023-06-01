@@ -1,4 +1,4 @@
-name: 'Publish NuGet RS.SDI.DimlMgr'
+name: 'Publish NuGet RS.SDI.DimlDataMgr'
 
 on:
   push:
@@ -17,7 +17,7 @@ on:
 env:
   DOTNET_VERSION: '7.0.x'
   BUILD_CONFIGURATION: Release
-  DIMLMGR_CLIENT_CSPROJ_PATH: 'dimlmgr-client/dimlmgr-client.csproj'
+  DIMLMGR_CLIENT_CSPROJ_PATH: 'dimldatamgr-client/dimldatamgr-client.csproj'
 
 jobs:
   build:
