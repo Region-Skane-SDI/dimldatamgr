@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>RS.SDI.DimlMgr.Client</RootNamespace>
+    <RootNamespace>RS.SDI.DimlDataMgr.Client</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\dimlmgr-client\dimlmgr-client.csproj" />
+    <ProjectReference Include="..\dimldatamgr-client\dimldatamgr-client.csproj" />
   </ItemGroup>
 
 </Project>

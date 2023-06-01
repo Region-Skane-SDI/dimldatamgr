@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace RS.SDI.DimlMgr.Server.Controllers
+namespace RS.SDI.DimlDataMgr.Server.Controllers
 {
     [ApiController]
     [Route("api/v0/dataproduct")]

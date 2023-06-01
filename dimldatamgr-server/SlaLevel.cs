@@ -1,4 +1,4 @@
-﻿namespace RS.SDI.DimlMgr.Server
+﻿namespace RS.SDI.DimlDataMgr.Server
 {
     public enum SlaLevel
     {

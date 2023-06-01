@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace RS.SDI.DimlMgr.Server
+namespace RS.SDI.DimlDataMgr.Server
 {
     public class Program
     {

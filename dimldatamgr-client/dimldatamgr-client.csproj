@@ -2,18 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>RS.SDI.DimlMgr.Client</RootNamespace>
+    <RootNamespace>RS.SDI.DimlDataMgr.Client</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.0.4</Version>
-    <PackageId>RS.SDI.Dimlmgr.Client</PackageId>
+    <Version>0.0.1</Version>
+    <PackageId>RS.SDI.DimlDataMgr.Client</PackageId>
     <Company>Region Skåne</Company>
-    <Title>Dimlmgr Client</Title>
-    <Product>Dimlmgr</Product>
+    <Title>DimlDataMgr Client</Title>
+    <Product>DimlDataMgr</Product>
     <Copyright>Copyright Region Skåne</Copyright>
-    <RepositoryUrl>https://github.com/Region-Skane-SDI/dimlmgr.git</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/Region-Skane-SDI/dimlmgr</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Region-Skane-SDI/dimldatamgr.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Region-Skane-SDI/dimldatamgr</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="RS.SDI.Diml" Version="0.0.52" />
+    <PackageReference Include="RS.SDI.Diml" Version="0.0.71" />
   </ItemGroup>
 
 </Project>

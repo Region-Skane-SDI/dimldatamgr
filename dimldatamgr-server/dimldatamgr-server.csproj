@@ -4,7 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
-    <RootNamespace>RS.SDI.DimlMgr.Server</RootNamespace>
+    <RootNamespace>RS.SDI.DimlDataMgr.Server</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

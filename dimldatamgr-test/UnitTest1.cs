@@ -1,4 +1,6 @@
-namespace RS.SDI.DimlMgr.Client
+using RS.SDI.DimlDataMgr.Client;
+
+namespace RS.SDI.DimlDataMgr.Test
 {
     [TestClass]
     public class UnitTest1
@@ -10,6 +12,7 @@ namespace RS.SDI.DimlMgr.Client
             await testbed.Init("dev", "https://raw.githubusercontent.com/Region-Skane-SDI/diml/main/samples/sample_config.dimlcfg");
             await testbed.PopulateSampleDataProductsAsync("https://api.github.com/repos/Region-Skane-SDI/diml/contents/samples/demo", xsdUri: "https://raw.githubusercontent.com/Region-Skane-SDI/diml/main/schemas/v0/dataproduct.xsd", xsdTargetNamespace: "https://github.com/Region-Skane-SDI/diml");
             await testbed.PopulateSampleStatesAsync();
+            await testbed.Init("prod", "https://raw.githubusercontent.com/Region-Skane-SDI/diml/main/samples/sample_config_new.dimlcfg");
             var states = await testbed.GetAllDataProductBundlesAsync();
 
             foreach (var state in states)

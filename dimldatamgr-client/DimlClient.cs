@@ -6,7 +6,7 @@ using RS.SDI.Diml.Core.Utilities;
 using RS.SDI.Diml.Data;
 using System.Xml.Linq;
 
-namespace RS.SDI.DimlMgr.Client
+namespace RS.SDI.DimlDataMgr.Client
 {
     public class DimlClient
     {
@@ -26,7 +26,7 @@ namespace RS.SDI.DimlMgr.Client
         public async Task Init(string environment, string configUri)
         {
             Workspace.Environment = environment;
-            Config.LoadAsync(configUri);
+            Config.LoadAsync(configUri, null);
         }
 
         public void Clear()

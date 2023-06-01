@@ -1,4 +1,4 @@
-﻿namespace RS.SDI.DimlMgr.Cmdline
+﻿namespace RS.SDI.DimlDataMgr.Cmdline
 {
     internal class Program
     {
