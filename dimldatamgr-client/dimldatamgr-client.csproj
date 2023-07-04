@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <PackageId>RS.SDI.DimlDataMgr.Client</PackageId>
     <Company>Region Skåne</Company>
     <Title>DimlDataMgr Client</Title>

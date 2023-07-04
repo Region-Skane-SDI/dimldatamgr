@@ -43,12 +43,16 @@ namespace RS.SDI.DimlDataMgr.Client
         /// <returns></returns>
         public async Task PopulateSampleDataProductsAsync(string repoUri, string? xsdUri = null, string? xsdTargetNamespace = null)
         {
-            await Workspace.PopulateSampleDataProductsAsync(repoUri, xsdUri ?? Workspace.DefaultDataProductXsdUri, xsdTargetNamespace ?? Workspace.DefaultXsdTargetNamespace);
+            // TODO: Enable validation by changing null values when DimlDataMgr is updated to use new Diml format.
+            await Workspace.PopulateSampleDataProductsAsync(repoUri, null, null);
+            // await Workspace.PopulateSampleDataProductsAsync(repoUri, xsdUri ?? Workspace.DefaultDataProductXsdUri, xsdTargetNamespace ?? Workspace.DefaultXsdTargetNamespace);
         }
 
         public async Task PopulateSampleDataSourcesAsync(string repoUri, string? xsdUri = null, string? xsdTargetNamespace = null)
         {
-            await Workspace.PopulateSampleDataSourcesAsync(repoUri, xsdUri ?? Workspace.DefaultDataSourceXsdUri, xsdTargetNamespace ?? Workspace.DefaultXsdTargetNamespace);
+            // TODO: Enable validation by changing null values when DimlDataMgr is updated to use new Diml format.
+            await Workspace.PopulateSampleDataSourcesAsync(repoUri, null, null);
+            // await Workspace.PopulateSampleDataSourcesAsync(repoUri, xsdUri ?? Workspace.DefaultDataSourceXsdUri, xsdTargetNamespace ?? Workspace.DefaultXsdTargetNamespace);
         }
 
         public async Task PopulateSampleStatesAsync()
